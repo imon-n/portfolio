@@ -1,9 +1,11 @@
-import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import smoothScrollTo from "../hooks/smoothScrollTo";
 
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
+  { name: "Education", href: "#education" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
@@ -16,16 +18,26 @@ const Navbar = () => {
     <div className="navbar bg-base-100 fixed top-0 z-50 shadow">
       <div className="container mx-auto px-4 flex justify-between items-center w-full">
         {/* Logo */}
-        <a href="#hero" className="btn btn-ghost normal-case text-xl text-primary">
-          xyz <span className="text-base-content ml-1">zyxjgd</span>
+        <a
+          onClick={() => smoothScrollTo("hero", 1500)}
+          className="btn btn-ghost normal-case text-xl text-primary"
+        >
+          Port<span className="text-base-content -ml-1">folio</span>
         </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 font-semibold">
             {navItems.map((item, idx) => (
               <li key={idx}>
-                <a href={item.href}>{item.name}</a>
+                <a
+                  onClick={() =>
+                    smoothScrollTo(item.href.replace("#", ""), 1200)
+                  }
+                >
+                  {item.name}
+                </a>
+                {/* <a onClick={() => smoothScrollTo(item.href, 1500)} href={item.href}>{item.name}</a> */}
               </li>
             ))}
           </ul>
@@ -33,7 +45,10 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button className="btn btn-ghost" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="btn btn-ghost"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -46,8 +61,10 @@ const Navbar = () => {
             {navItems.map((item, idx) => (
               <li key={idx}>
                 <a
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    smoothScrollTo(item.href.replace("#", ""), 1500);
+                    setIsMenuOpen(false);
+                  }}
                 >
                   {item.name}
                 </a>

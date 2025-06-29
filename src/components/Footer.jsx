@@ -1,4 +1,5 @@
 import { ArrowUp } from "lucide-react";
+import smoothScrollTo from "../hooks/smoothScrollTo";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         &copy; {new Date().getFullYear()} Pedrotech.co. All rights reserved.
       </p>
       <a
-        href="#hero"
+        onClick={() => smoothScrollTo("hero", 1500)}
         className="absolute right-4 p-2 rounded-full bg-primary/20 hover:bg-primary/30 text-primary transition-colors"
         aria-label="Back to top"
       >

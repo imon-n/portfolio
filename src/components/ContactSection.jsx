@@ -1,18 +1,23 @@
 import {
   Instagram,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
   Twitch,
   Twitter,
+  Github
 } from "lucide-react";
-import { useToast } from "../hooks/use-toast";
+import { FaGithub } from "react-icons/fa";
+import { IoLogoLinkedin } from "react-icons/io5";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+
 import { useState } from "react";
+import { useToast } from "../hooks/use-toast";
 
 const ContactSection = () => {
-    const { toast } = useToast();
+  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
@@ -29,7 +34,7 @@ const ContactSection = () => {
     }, 1500);
   };
 
- return (
+  return (
     <section id="contact" className="py-24 px-4 ">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
@@ -58,7 +63,7 @@ const ContactSection = () => {
                     href="mailto:hello@gmail.com"
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
-                    hello@gmail.com
+                    imon.eeecu@gmail.com
                   </a>
                 </div>
               </div>
@@ -69,12 +74,12 @@ const ContactSection = () => {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium">Phone</h4>
+                  <h4 className="font-medium">Phone/What'App</h4>
                   <a
                     href="tel:+11234567890"
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
-                    +880 13...
+                    +880 1746726836
                   </a>
                 </div>
               </div>
@@ -87,7 +92,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium">Location</h4>
                   <p className="text-gray-600 hover:text-primary transition-colors">
-                    London, UK
+                    Chattogram, Bangladesh
                   </p>
                 </div>
               </div>
@@ -101,38 +106,38 @@ const ContactSection = () => {
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-primary transition-colors"
+                  className="text-blue-600 rounded-md hover:text-primary transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin size={24} />
+                  <IoLogoLinkedin size={32} />
                 </a>
                 <a
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-primary transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter size={24} />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-primary transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram size={24} />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-primary transition-colors"
+                  className="text-blue-600 rounded-md hover:text-primary transition-colors"
                   aria-label="Twitch"
                 >
-                  <Twitch size={24} />
+                  <FaFacebook size={32} />
                 </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  <FaGithub size={32} />
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className=" rounded-full text-pink-600 "
+                  aria-label="Instagram"
+                >
+                  <FaInstagram size={32} />
+                </a>
+                
               </div>
             </div>
           </div>
@@ -146,7 +151,10 @@ const ContactSection = () => {
 
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
                   Your Name
                 </label>
                 <input
@@ -155,12 +163,15 @@ const ContactSection = () => {
                   name="name"
                   required
                   className="input input-bordered w-full"
-                  placeholder="Pedro Machado..."
+                  placeholder="Rikar Machau..."
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
                   Your Email
                 </label>
                 <input

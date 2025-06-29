@@ -1,24 +1,23 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Info } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Athletic-Hub",
+    description: "Athletic-Hub is a modern web platform for creating, managing, and booking sports events with user authentication, event search, and a responsive UI",
+    image: "/public/projects/event.png",
+    tags: ["ReactJS", "Tailwind CSS", "Firebase"],
+    demoUrl: "http://assignment-11-imon.surge.sh/",
+    githubUrl: "https://github.com/imon-n/AthleticHub-client-side",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
-    description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "PlantCare Platform",
+    description: "PlantCare  A React-based app to manage and track your plant collection, Features include user authentication, plant add/update/view, beginner-friendly filters, and a clean, responsive UI with reusable components.",
+    image: "/public/projects/PlantCare.png",
+    tags: ["ReactJS", "Tailwind CSS", "Firebase"],
+    demoUrl: "http://plantcareplatform.surge.sh/",
+    githubUrl: "https://github.com/imon-n/PlantCareHub",
   },
   {
     id: 3,
@@ -94,6 +93,15 @@ const ProjectsSection = () => {
                   >
                     <Github size={20} />
                   </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-ghost btn-sm rounded-md p-2 text-gray-700 hover:text-primary"
+                    aria-label={`GitHub repo for ${project.title}`}
+                  >
+                    <Info size={20} />
+                  </a>
                 </div>
               </div>
             </div>
@@ -107,9 +115,9 @@ const ProjectsSection = () => {
             className="btn btn-primary btn-md inline-flex items-center gap-2 mx-auto"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/machadop1407"
+            href="https://github.com/imon-n"
           >
-            Check My Github <ArrowRight size={16} />
+            Visit My Github <ArrowRight size={16} />
           </a>
         </div>
       </div>
