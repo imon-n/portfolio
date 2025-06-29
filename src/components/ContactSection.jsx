@@ -60,7 +60,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium">Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:imon.eeecu@gmail.com"
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     imon.eeecu@gmail.com
@@ -103,7 +103,7 @@ const ContactSection = () => {
               <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-6">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/nur-mohammad-imon-29a2b4255/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 rounded-md hover:text-primary transition-colors"
@@ -112,7 +112,7 @@ const ContactSection = () => {
                   <IoLogoLinkedin size={32} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/mdimon.imon.18"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 rounded-md hover:text-primary transition-colors"
@@ -121,7 +121,7 @@ const ContactSection = () => {
                   <FaFacebook size={32} />
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/imon-n"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
@@ -129,7 +129,7 @@ const ContactSection = () => {
                   <FaGithub size={32} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/mdimon.imon.18/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   className=" rounded-full text-pink-600 "

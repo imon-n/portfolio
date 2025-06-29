@@ -37,9 +37,16 @@ const Navbar = () => {
                 >
                   {item.name}
                 </a>
-                {/* <a onClick={() => smoothScrollTo(item.href, 1500)} href={item.href}>{item.name}</a> */}
               </li>
             ))}
+            <li className="btn btn-primary px-0">
+              <a
+                target="_blank"
+                href="https://drive.google.com/file/d/1-OMpLZkh49k25j1EtkmhXT_y0iJ20aYg/view"
+              >
+                Download CV
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -70,6 +77,14 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
+            <li className="btn btn-primary px-0">
+              <a
+                target="_blank"
+                href="https://drive.google.com/file/d/1-OMpLZkh49k25j1EtkmhXT_y0iJ20aYg/view"
+              >
+                Download CV
+              </a>
+            </li>
           </ul>
         </div>
       )}
