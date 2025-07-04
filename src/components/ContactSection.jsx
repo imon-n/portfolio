@@ -6,19 +6,42 @@ import {
   Send,
   Twitch,
   Twitter,
-  Github
+  Github,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "../hooks/use-toast";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [stars, setStars] = useState([]);
+
+  useEffect(() => {
+    generateStars();
+    const handleResize = () => generateStars();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const generateStars = () => {
+    const numberOfStars = 100;
+    const newStars = [];
+    for (let i = 0; i < numberOfStars; i++) {
+      newStars.push({
+        id: i,
+        size: Math.random() * 2 + 1,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        opacity: Math.random() * 0.6 + 0.4,
+      });
+    }
+    setStars(newStars);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,13 +58,32 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 ">
-      <div className="container mx-auto max-w-5xl">
+    <section id="contact" className="relative py-24 px-8 md:px-4 overflow-hidden">
+      {/* Starry Background */}
+      <div className="absolute inset-0 bg-black -z-10">
+        {stars.map((star) => (
+          <div
+            key={star.id}
+            className="absolute rounded-full bg-yellow-400"
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              left: `${star.x}%`,
+              top: `${star.y}%`,
+              opacity: star.opacity,
+              filter: "drop-shadow(0 0 2px #FFD700)",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto max-w-5xl relative z-10 text-white">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
           Get In <span className="text-primary">Touch</span>
         </h2>
 
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-white/70 mb-12 max-w-2xl mx-auto">
           Have a project in mind or want to collaborate? Feel free to reach out.
           I'm always open to discussing new opportunities.
         </p>
@@ -61,7 +103,7 @@ const ContactSection = () => {
                   <h4 className="font-medium">Email</h4>
                   <a
                     href="mailto:imon.eeecu@gmail.com"
-                    className="text-gray-600 hover:text-primary transition-colors"
+                    className="text-white/70 hover:text-primary transition-colors"
                   >
                     imon.eeecu@gmail.com
                   </a>
@@ -76,8 +118,8 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium">Phone/What'App</h4>
                   <a
-                    href="tel:+11234567890"
-                    className="text-gray-600 hover:text-primary transition-colors"
+                    href="tel:+8801746726836"
+                    className="text-white/70 hover:text-primary transition-colors"
                   >
                     +880 1746726836
                   </a>
@@ -91,9 +133,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-medium">Location</h4>
-                  <p className="text-gray-600 hover:text-primary transition-colors">
-                    Chattogram, Bangladesh
-                  </p>
+                  <p className="text-white/70">Chattogram, Bangladesh</p>
                 </div>
               </div>
             </div>
@@ -106,8 +146,7 @@ const ContactSection = () => {
                   href="https://www.linkedin.com/in/nur-mohammad-imon-29a2b4255/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 rounded-md hover:text-primary transition-colors"
-                  aria-label="LinkedIn"
+                  className="text-blue-500 hover:text-primary transition-colors"
                 >
                   <IoLogoLinkedin size={32} />
                 </a>
@@ -115,8 +154,7 @@ const ContactSection = () => {
                   href="https://www.facebook.com/mdimon.imon.18"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 rounded-md hover:text-primary transition-colors"
-                  aria-label="Twitch"
+                  className="text-blue-500 hover:text-primary transition-colors"
                 >
                   <FaFacebook size={32} />
                 </a>
@@ -124,7 +162,7 @@ const ContactSection = () => {
                   href="https://github.com/imon-n"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
+                  className="text-white hover:text-primary transition-colors"
                 >
                   <FaGithub size={32} />
                 </a>
@@ -132,28 +170,25 @@ const ContactSection = () => {
                   href="https://www.instagram.com/mdimon.imon.18/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className=" rounded-full text-pink-600 "
-                  aria-label="Instagram"
+                  className="text-pink-600 hover:text-primary transition-colors"
                 >
                   <FaInstagram size={32} />
                 </a>
-                
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div
-            className="bg-base-100 p-8 rounded-lg shadow-lg"
-            onSubmit={handleSubmit}
-          >
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+          <div className="p-8 bg-gray-800 rounded-lg shadow-lg">
+            <h3 className="text-2xl text-white  font-semibold mb-6 ">
+              Send a Message
+            </h3>
 
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6 " onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-blue-white  text-sm font-medium mb-2"
                 >
                   Your Name
                 </label>
@@ -162,7 +197,7 @@ const ContactSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-700"
                   placeholder="Rikar Machau..."
                 />
               </div>
@@ -170,7 +205,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-white"
                 >
                   Your Email
                 </label>
@@ -179,7 +214,7 @@ const ContactSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-700"
                   placeholder="john@gmail.com"
                 />
               </div>
@@ -187,7 +222,7 @@ const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-white"
                 >
                   Your Message
                 </label>
@@ -195,7 +230,7 @@ const ContactSection = () => {
                   id="message"
                   name="message"
                   required
-                  className="textarea textarea-bordered w-full resize-none"
+                  className="textarea textarea-bordered w-full resize-none bg-gray-700"
                   placeholder="Hello, I'd like to talk about..."
                   rows={4}
                 />

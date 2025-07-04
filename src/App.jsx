@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Navbar />
@@ -20,6 +20,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
